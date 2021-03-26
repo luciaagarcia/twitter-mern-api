@@ -1,5 +1,4 @@
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -7,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true)
+var express = require('express');
 
 var indexRouter = require('./routes/index');
 var postRouter = require('./routes/post');
@@ -37,6 +37,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors());
+
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extende: true }))
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true })
