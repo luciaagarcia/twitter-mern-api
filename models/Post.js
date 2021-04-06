@@ -10,4 +10,4 @@ var PostSchema = new Schema({
   publicationdate: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Posts', PostSchema);
